@@ -1,0 +1,4 @@
+Esta carpeta es solo para archivos estaticos  Por lo general, tiene subcarpetas
+como css, libs e img para estilos CSS, imagenes y blibliotecas de Javascript como JQuery.
+Es una practica recomendada que esta carpeta sea servida no por su aplicacion, sino por un 
+servidor Nginx o Apache, ya que son mucho mejores que Node en el servicio de archivos esaticos.

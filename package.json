@@ -1,0 +1,22 @@
+{
+    "name": "patapila",
+    "version": "1.0.0",
+    "description": "proyecto de prueba para entender desde un principio como armar mi backend",
+    "main": "server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "nodemon server.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "bootstrap": "^4.3.1",
+        "ejs": "^2.6.2",
+        "express": "^4.17.1",
+        "firebase-admin": "^8.3.0",
+        "jquery": "^3.4.1",
+        "popper.js": "^1.15.0",
+        "serialport": "^7.1.5",
+        "xbee-api": "^0.6.0"
+    }
+}
