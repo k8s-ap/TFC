@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ../partials/head.ejs %>
+        <title>Create Sensor</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <% include ../partials/header.ejs %>
+        </header class="container">
+
+        <main>
+            <!-- <% include ../partials/main.ejs %> -->
+            <h3><a href="/configuraciones/sensores">Sensor List</a></h3>
+            <h1>Create new sensor</h1>
+            <form action="/configuraciones/sensores/save" method="post">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Model</td>
+                            <td><input type="text" name="model" /></td>
+                        </tr>
+                        <tr>
+                            <td>Type</td>
+                            <td><input type="text" name="type" /></td>
+                        </tr>
+                        <tr>
+                            <td>Lugar de Ubicacion</td>
+                            <td><input type="text" name="lugarUbicacion" /></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><input type="submit" value="Save" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </main>
+
+        <footer>
+            <% include ../partials/footer.ejs %>
+        </footer>
+    </div>
+    <script src="/libs-style/jquery.js"></script>
+    <script src="/libs-style/popper.js"></script>
+    <script src="/libs-style/bootstrap.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ../partials/head.ejs %>
+        <title>Configuraciones</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <% include ../partials/header.ejs %>
+        </header class="container">
+
+        <main>
+            <!-- <% include ../partials/main.ejs %> -->
+
+
+
+            <div class="jumbotron">
+                <h1>Estoy en la configuracion del administrador</h1>
+                <p>Aqui puedo agregar nuevos sensores con sus respectivas propiedades como:</p>
+                <p>Modelo y fabricante, estado: encendido/apagado, notificacion:activado/desactivado, voltaje, amperes, fecha de compra, etc</p>
+                <a class="dropdown-item" href="/configuraciones/sensores/create">Link para dirigirse al Formulario que me permite crear un sensor</a>
+            </div>
+
+        </main>
+
+        <footer>
+            <% include ../partials/footer.ejs %>
+        </footer>
+    </div>
+    <script src="/libs-style/jquery.js"></script>
+    <script src="/libs-style/popper.js"></script>
+    <script src="/libs-style/bootstrap.js"></script>
+</body>
+
+</html>

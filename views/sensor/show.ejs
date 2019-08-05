@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ../partials/head.ejs %>
+        <title>Sensor Detail</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <% include ../partials/header.ejs %>
+        </header class="container">
+
+        <main>
+            <!-- <% include ../partials/main.ejs %> -->
+            <h3><a href="/configuraciones/sensores">Sensor List</a></h3>
+            <h1>Sensor Detail</h1>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Name </td>
+                        <!-- <td>{{ product.name }}</td> -->
+                        <td>mySensor.name</td>
+                    </tr>
+                    <tr>
+                        <td>Address </td>
+                        <!-- <td>{{ product.price }}</td> -->
+                        <td>mySensor.price</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- <h3><a href="/products/edit/{{ product._id }}">EDIT</a></h3> -->
+            <h3><a href="./edit/{{ 3 }}">EDIT</a></h3>
+            <!-- <form action="/products/delete/{{ product._id }}" method="post"></form> -->
+            <form action="./delete/{{ 9 }}" method="post">
+                <button type="submit">DELETE</button>
+            </form>
+
+        </main>
+
+        <footer>
+            <% include ../partials/footer.ejs %>
+        </footer>
+    </div>
+    <script src="/libs-style/jquery.js"></script>
+    <script src="/libs-style/popper.js"></script>
+    <script src="/libs-style/bootstrap.js"></script>
+</body>
+
+</html>

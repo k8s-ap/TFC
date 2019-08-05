@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ../partials/head.ejs %>
+        <title>Sensor List</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <% include ../partials/header.ejs %>
+        </header class="container">
+
+        <main>
+            <!-- <% include ../partials/main.ejs %> -->
+            <h3><a href="/configuraciones/sensores/create">Create Sensor</a></h3>
+            <h1>Sensor List</h1>
+            <!-- {% if products is not empty %} -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sensor Name</th>
+                        <th>Lugar Ubicacion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- {% for product in products %} -->
+                    <tr>
+                        <!-- <td><a href="/configuraciones/sensores/show/{{ product._id }}">{{ product.name }}</a></td> -->
+                        <td><a href="/configuraciones/sensores/show">{{ mySensor.name }}</a></td>
+                        <td>{{ product.price }}</td>
+                    </tr>
+                    <!-- {% endfor %} -->
+                </tbody>
+            </table>
+            <!-- {% else %} -->
+            <div>No sensor found.</div>
+            <!-- {% endif %} -->
+
+        </main>
+
+        <footer>
+            <% include ../partials/footer.ejs %>
+        </footer>
+    </div>
+    <script src="/libs-style/jquery.js"></script>
+    <script src="/libs-style/popper.js"></script>
+    <script src="/libs-style/bootstrap.js"></script>
+</body>
+
+</html>
+
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+    <title>Product List</title>
+</head>
+
+<body>
+    <div class="container">
+        <h3><a href="/products/create">Create Product</a></h3>
+        <h1>Product List</h1>
+        {% if products is not empty %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Employee Name</th>
+                    <th>Position</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                <tr>
+                    <td><a href="/products/show/{{ product._id }}">{{ product.name }}</a></td>
+                    <td>{{ product.price }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <div>No products found.</div>
+        {% endif %}
+    </div>
+</body>
+
+</html> -->
