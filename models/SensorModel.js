@@ -1,16 +1,21 @@
-/* function Sensor(model, type, lugarUbicacion) {
-    this.model = model;
-    this.type = type;
-    this.lugarUbicacion = lugarUbicacion;
-}
- */
-
+/* 
 function Sensor(data) {
     this.model = data.model;
     this.type = data.type;
     this.lugarUbicacion = data.lugarUbicacion;
-}
+} */
 
+class Sensor {
+    constructor(data) {
+        this.data.model = data.model;
+        this.data.type = data.type;
+        this.data.lugarUbicacion = data.lugarUbicacion;
+    }
+
+    get() {
+        return this.data;
+    }
+}
 
 module.exports = Sensor;
 

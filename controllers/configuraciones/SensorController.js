@@ -1,4 +1,5 @@
-var Sensor = require("../../models/Sensor.js");
+var Sensor = require("../../models/SensorModel.js");
+var Persona = require("../../models/PersonaModel.js");
 
 var sensorController = {};
 
@@ -23,8 +24,23 @@ sensorController.create = function(req, res) {
 };
 
 sensorController.save = function(req, res) {
-    let sensor = new Sensor(req.body);
-    console.log(sensor);
+    // let sensor = new Sensor(req.body);
+    // console.log(sensor);
+
+    /*  let persona1 = new Persona("adrian", 31);
+     persona1.saludar();
+     class Desarrollador extends Persona {
+         constructor(nombre, edad, tipo) {
+             super(nombre, edad);
+             this.tipo = tipo;
+         }
+         saludoDesarrollador() {
+             console.log(`soy un ${this.tipo} developer`);
+         }
+     }
+     let java1 = new Desarrollador("Matias", 31, "Java");
+     java1.saludoDesarrollador(); */
+
 
 
 
