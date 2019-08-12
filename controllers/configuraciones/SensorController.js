@@ -1,5 +1,7 @@
 var Sensor = require("../../models/SensorModel.js");
-var Persona = require("../../models/PersonaModel.js");
+
+
+
 
 var sensorController = {};
 
@@ -42,14 +44,14 @@ sensorController.save = function(req, res) {
      java1.saludoDesarrollador(); */
 
 
+    // database.saveExample();
 
-
-
+    let sensor = new Sensor();
+    sensor.save();
 
     // res.send("aqui debo crear una instancia de Sensor(req,res) y guardarlo en mi bd realtime.  Finalmente redireccionarlo a la ruta /configuraciones/sensores/show");
-    console.log("aqui debo crear una instancia de Sensor(req, res) y guardarlo en mi bd realtime.Finalmente redireccionarlo a la ruta / configuraciones / sensores / show)");
+    console.log("Aqui debo crear una instancia de Sensor(req, res) y guardarlo en mi bd realtime.Finalmente redireccionarlo a la ruta / configuraciones / sensores / show)");
     res.redirect("/configuraciones/sensores/show");
-
     /* var product = new Product(req.body);
 
     product.save(function(err) {
