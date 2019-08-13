@@ -1,8 +1,6 @@
 var Sensor = require("../../models/SensorModel.js");
 
 
-
-
 var sensorController = {};
 
 
@@ -26,32 +24,10 @@ sensorController.create = function(req, res) {
 };
 
 sensorController.save = function(req, res) {
-    // let sensor = new Sensor(req.body);
-    // console.log(sensor);
+    let sensor = new Sensor(req.body); //creo una nueva instancia de Sensor con los datos del formulario
+    sensor.save(); // guardo el sensor creado, en la BD realtimeDatabase {NO se hará segun el tipo: Magnetico, Gas, Movimiento }
 
-    /*  let persona1 = new Persona("adrian", 31);
-     persona1.saludar();
-     class Desarrollador extends Persona {
-         constructor(nombre, edad, tipo) {
-             super(nombre, edad);
-             this.tipo = tipo;
-         }
-         saludoDesarrollador() {
-             console.log(`soy un ${this.tipo} developer`);
-         }
-     }
-     let java1 = new Desarrollador("Matias", 31, "Java");
-     java1.saludoDesarrollador(); */
-
-
-    // database.saveExample();
-
-    let sensor = new Sensor();
-    sensor.save();
-
-    // res.send("aqui debo crear una instancia de Sensor(req,res) y guardarlo en mi bd realtime.  Finalmente redireccionarlo a la ruta /configuraciones/sensores/show");
-    console.log("Aqui debo crear una instancia de Sensor(req, res) y guardarlo en mi bd realtime.Finalmente redireccionarlo a la ruta / configuraciones / sensores / show)");
-    res.redirect("/configuraciones/sensores/show");
+    res.redirect("/configuraciones/sensores/show"); // redireccionarlo a la ruta / configuraciones / sensores / show para mostrar los sensores que tengo cargados en mi BD
     /* var product = new Product(req.body);
 
     product.save(function(err) {
