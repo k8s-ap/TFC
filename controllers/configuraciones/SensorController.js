@@ -27,27 +27,38 @@ sensorController.save = function(req, res) {
     let sensor = new Sensor(req.body); //creo una nueva instancia de Sensor con los datos del formulario
     sensor.save(); // guardo el sensor creado, en la BD realtimeDatabase {NO se hará segun el tipo: Magnetico, Gas, Movimiento }
 
-    res.redirect("/configuraciones/sensores/show"); // redireccionarlo a la ruta / configuraciones / sensores / show para mostrar los sensores que tengo cargados en mi BD
-    /* var product = new Product(req.body);
+    console.log("El key asignado por firebase para mi nuevo sensor es:", sensor.data._id);
+    res.redirect("/configuraciones/sensores/show/" + sensor.data._id); // redireccionarlo a la ruta / configuraciones / sensores / show para mostrar los sensores que tengo cargados en mi BD
+    // lo unico que faltaria es tratar en caso de error con la conexion a database realtime firebase
 
-    product.save(function(err) {
-        if (err) { console.log('Error: ', err); return; }
-
-        console.log("Successfully created a product. :)");
-        res.redirect("/products/show/" + product._id);
-
-    }); */
 };
 
 sensorController.show = function(req, res) {
-    /* Product.findOne({ _id: req.params.id }).exec(function(err, product) {
-        if (err) { console.log('Error: ', err); return; }
 
-        res.render('../views/product/show', { product: product });
-    }); */
+    var obtenerDetalleUltimoSensorCargado = async() => {
+        let sensorShow = await Sensor.findOne(req.params.id); // le envio por parametro la key del ultimo sensor cargado  
+        console.log("mostrando el sensor recientemente cargado:\n ", sensorShow);
+        res.render('./sensor/show.ejs', { sensor: sensorShow });
+    }
+    obtenerDetalleUltimoSensorCargado(); // llamo a mi funcion asincrona
 
-    res.render('./sensor/show.ejs');
 
+    // let model = sensorShow.model;
+    // let type = sensorShow.type;
+    // let lugarUbicacion = sensorShow.lugarUbicacion;
+    // res.render('./sensor/show.ejs', { model: "asdddsf" });
+
+    /* Product
+        .findOne({ 
+            _id: req.params.id 
+        })
+        .exec(function(err, product) {
+            if (err) { 
+                console.log('Error: ', err); 
+                return; 
+            }
+            res.render('../views/product/show', { product: product });
+        }); */
 };
 
 sensorController.edit = function(req, res) {

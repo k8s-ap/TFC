@@ -36,18 +36,8 @@ class Database {
     }
 
     get() {
-            return this.service;
-        }
-        /* saveExample() {
-            this.service.ref('myReferencia/' + 1505).set({
-                username: "usernameExampleService",
-                email: "emailExampleService"
-            });
-
-            console.log("Creo que los datos se guardaron correctamente");
-            console.log(this.service);
-        } */
-        // save()
+        return this.service;
+    }
 }
 
 module.exports = Database;

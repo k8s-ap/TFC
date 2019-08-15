@@ -10,7 +10,7 @@ var sensor = require('../../controllers/configuraciones/SensorController.js');
 router.get('/', sensor.list);
 router.get('/create', sensor.create);
 router.post('/save', sensor.save);
-router.get('/show', sensor.show);
+router.get('/show/:id', sensor.show); //
 router.get('/edit/:id', sensor.edit);
 router.post('/delete/:id', sensor.delete);
 router.post('/update/:id', sensor.update);

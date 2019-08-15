@@ -13,20 +13,31 @@
         </header class="container">
 
         <main>
-            <!-- <% include ../partials/main.ejs %> -->
             <h3><a href="/configuraciones/sensores">Sensor List</a></h3>
-            <h1>Sensor Detail</h1>
+
             <table>
+                <thead>Detalles del sensor cargado recientemente:</thead>
                 <tbody>
                     <tr>
-                        <td>Name </td>
+                        <td>Modelo:</td>
                         <!-- <td>{{ product.name }}</td> -->
-                        <td>mySensor.name</td>
+                        <td>
+                            <%= sensor.model %>
+                        </td>
                     </tr>
                     <tr>
-                        <td>Address </td>
+                        <td>Tipo: </td>
                         <!-- <td>{{ product.price }}</td> -->
-                        <td>mySensor.price</td>
+                        <td>
+                            <%= sensor.type %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Lugar de ubicación: </td>
+                        <!-- <td>{{ product.price }}</td> -->
+                        <td>
+                            <%= sensor.lugarUbicacion %>
+                        </td>
                     </tr>
                 </tbody>
             </table>
