@@ -6,8 +6,37 @@ var sensorController = {};
 
 sensorController.list = function(req, res) {
 
-    // res.send('aqui tengo que devolver una vista con la LISTA de sensores en mi BD');
-    res.render('./sensor/index.ejs');
+    let asyncObtenerSensores = async() => {
+        let allSensors = await Sensor.findAll();
+        // console.log("TODOS LOS SENSORES SON:\n ", allSensors);
+        let arraySensores = Object.entries(allSensors);
+        console.log(arraySensores);
+        console.log("5555555555555555555555555555555555");
+        console.log(arraySensores[1]);
+        /* let drinks = [{
+                name: 'Bloody Mary',
+                drunkness: 3
+            },
+            {
+                name: 'Martini',
+                drunkness: 5
+            },
+            {
+                name: 'Scotch',
+                drunkness: 10
+            }
+        ]; */
+        res.render('./sensor/index.ejs', { sensores: arraySensores });
+        /* miArray.forEach(([key, value]) => {
+            console.log(key + ' ' + Object.values(value)); // "a 5", "b 7", "c 9"     
+        }); */
+
+        // < %= sensores['-LmMYKElQEHWt6GokDwi'].model % >
+    };
+    asyncObtenerSensores();
+
+    // res.send('aqui tengo que devolver una vista con TODOS los "sensores" en mi BD');
+
     /* Product.find({}).exec(function (err, products) {
         if (err) { console.log('Error: ', err); return; }
         console.log("The INDEX");
@@ -35,12 +64,12 @@ sensorController.save = function(req, res) {
 
 sensorController.show = function(req, res) {
 
-    var obtenerDetalleUltimoSensorCargado = async() => {
+    var asyncObtenerDetalleUltimoSensorCargado = async() => {
         let sensorShow = await Sensor.findOne(req.params.id); // le envio por parametro la key del ultimo sensor cargado  
         console.log("mostrando el sensor recientemente cargado:\n ", sensorShow);
-        res.render('./sensor/show.ejs', { sensor: sensorShow });
+        res.render('./sensor/show.ejs', { sensor: sensorShow, idSensor: req.params.id });
     }
-    obtenerDetalleUltimoSensorCargado(); // llamo a mi funcion asincrona
+    asyncObtenerDetalleUltimoSensorCargado(); // llamo a mi funcion asincrona
 
 
     // let model = sensorShow.model;
@@ -48,68 +77,56 @@ sensorController.show = function(req, res) {
     // let lugarUbicacion = sensorShow.lugarUbicacion;
     // res.render('./sensor/show.ejs', { model: "asdddsf" });
 
-    /* Product
-        .findOne({ 
-            _id: req.params.id 
-        })
-        .exec(function(err, product) {
-            if (err) { 
-                console.log('Error: ', err); 
-                return; 
-            }
-            res.render('../views/product/show', { product: product });
-        }); */
 };
 
 sensorController.edit = function(req, res) {
-    /* Product.findOne({ _id: req.params.id }).exec(function(err, product) {
-        if (err) { console.log("Error:", err); return; }
 
-        res.render("../views/product/edit", { product: product });
+    var asyncObtenerDetalleDelSensor = async() => {
+        let sensorAEditar = await Sensor.findOne(req.params.id); // le envio por parametro la key del ultimo sensor cargado  
+        console.log("SensorAEditar es: \n", sensorAEditar);
+        res.render("./sensor/edit.ejs", { sensor: sensorAEditar, idSensor: req.params.id });
+    }
+    asyncObtenerDetalleDelSensor();
 
-    }); */
-    console.log("{sensorController.edit}");
-    console.log("Busco el id del sensor y lo envio a la vista /views/sensor/edit");
-    // res.send("{estoy en edit} Mostrar vista formulario para editar los datos del formulario a editar");
-    res.render("./sensor/edit.ejs", { product: 12 });
+
+
 };
 
 sensorController.delete = function(req, res) {
     // res.send("{estoy en delete} Aqui muestro por consola un mensaje que el Sensor fue borrado exitosamente y posteriormente redirecciono al link /Sensors");
+    // console.log("estoy en el controoller detele");
 
-    console.log("muestro el mensaje: Sensor borrado exitosamente y posteriormente redirecciono a la direccion /sensors");
-    res.redirect("/configuraciones/sensores");
+    var asyncDeleteSensor = async() => {
+        console.log("mi key a borrar detro de Sensor Controoler es:", req.params.id);
+        await Sensor.findByIdAndDelete(req.params.id); // le envio en el 1er parametro la key del sensor a actualizar y en el 2do parametro los datos a setear
+        console.log("se borro exitosamente???");
+        res.redirect("/configuraciones/sensores");
+    }
+    asyncDeleteSensor();
 
-    /* Product.remove({ _id: req.params.id }, function(err) {
-        if (err) { console.log('Error: ', err); return; }
-
-        console.log("Product deleted!");
-        res.redirect("/products");
-    }); */
-
+    // console.log("muestro el mensaje: Sensor borrado exitosamente y posteriormente redirecciono a la direccion /sensors");
+    // res.redirect("/configuraciones/sensores");
 };
 
 sensorController.update = function(req, res) {
-    // res.send('{estoy en update} Actualizo id del sensor y actualizo.  Finalmente redirecciono a /configuraciones/sensores/show/2018');
-    console.log("{estoy en update} Actualizo id del sensor y actualizo.  Finalmente redirecciono a /configuraciones/sensores/show/2018");
-    res.redirect("/configuraciones/sensores/show");
-    /* Product.findByIdAndUpdate(req.params.id, {
-            $set: {
-                name: req.body.name,
-                price: req.body.price
-            }
-        }, { new: true },
-        function(err, product) {
-            if (err) {
-                console.log('Error: ', err);
-                res.render('../views/product/edit', { product: req.body });
-            }
 
-            console.log(product);
+    // console.log("Actualizo los valores del id del sensor.");
+    console.log("los datos recibidos para cambiar son:", req.body);
+    // res.redirect("/configuraciones/sensores/show/" + req.params.id);
 
-            res.redirect('/products/show/' + product._id);
+    var asyncActualizoSensor = async() => {
+        let set = {
+            model: req.body.model,
+            type: req.body.type,
+            lugarUbicacion: req.body.lugarUbicacion
+        };
 
-        }); */
+        await Sensor.findByIdAndUpdate(req.params.id, set); // le envio en el 1er parametro la key del sensor a actualizar y en el 2do parametro los datos a setear
+
+        res.redirect("/configuraciones/sensores/show/" + req.params.id);
+    }
+    asyncActualizoSensor();
+
 };
 
 

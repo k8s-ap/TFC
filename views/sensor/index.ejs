@@ -15,23 +15,33 @@
         <main>
             <!-- <% include ../partials/main.ejs %> -->
 
-            <h1>Sensor List</h1>
+            <h1>Lista de sensores</h1>
             <!-- {% if products is not empty %} -->
             <table>
                 <thead>
                     <tr>
-                        <th>Sensor Name</th>
-                        <th>Lugar Ubicacion</th>
+                        <th>Modelo:</th>
+                        <th>Tipo:</th>
+                        <th>Lugar de Ubicación:</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- {% for product in products %} -->
-                    <tr>
-                        <!-- <td><a href="/configuraciones/sensores/show/{{ product._id }}">{{ product.name }}</a></td> -->
-                        <td><a href="/configuraciones/sensores/show">{{ mySensor.name }}</a></td>
-                        <td>{{ product.price }}</td>
-                    </tr>
-                    <!-- {% endfor %} -->
+                    <% sensores.forEach(function(sensor) { %>
+                        <tr>
+
+                            <td>
+                                <a href="/configuraciones/sensores/show/<%= sensor[0] %>">
+                                    <%= sensor[1].model %>
+                                </a>
+                            </td>
+                            <td>
+                                <%= sensor[1].type %>
+                            </td>
+                            <td>
+                                <%= sensor[1].lugarUbicacion %>
+                            </td>
+                        </tr>
+                        <% }); %>
                 </tbody>
             </table>
             <h3><a href="/configuraciones/sensores/create">Create Sensor</a></h3>

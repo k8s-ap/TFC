@@ -34,6 +34,17 @@ class Sensor {
 
     }
 
+    static async findByIdAndUpdate(key, dataSet) {
+        // await console.log("estoy en el findByIdAndUpdate del archivo SensorModel.js");
+        await database.service.ref('/Sensor/' + key).update(dataSet);
+        // console.log("ya se actualizo supuestamente lo siguiente: ", key, dataSet);
+    }
+
+    static async findByIdAndDelete(keySensor) {
+        await database.service.ref('/Sensor/' + keySensor).remove();
+        console.log("¿¿borre desde SensorModel.js la key:??", keySensor);
+    }
+
     static async findOne(idRegistro) {
         var todosLosSensores;
         var result;
@@ -48,6 +59,22 @@ class Sensor {
         // let listaTemporal = Object.values(sensoresGuardados);
         // console.log(Object.keys(sensoresGuardados));
         // console.log(Object.getOwnPropertyNames(sensoresGuardados)); //obtiene el nombre de todas las propiedades de dicho objeto
+        /**
+         * miArray.forEach(([key, value]) => {
+             console.log(key + ' ' + Object.values(value)); // "a 5", "b 7", "c 9"     
+         });
+         */
+    }
+
+    static async findAll() {
+
+        var result;
+        await database.service.ref('/Sensor').once('value').then(snapshot => {
+            result = (snapshot.val());
+            // console.log("El ultimo sensor cargado es:\n", idRegistro, sensoresGuardados[idRegistro]);
+        });
+        // console.log("mostrar todos los sensores: \n", result);
+        return result;
     }
 
 }

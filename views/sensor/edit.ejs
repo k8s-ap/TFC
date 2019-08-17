@@ -13,17 +13,33 @@
         </header class="container">
 
         <main>
-            <!-- <% include ../partials/main.ejs %> -->
-            <form action="/configuraciones/sensores/update/654" method="post">
+
+            <form action="/configuraciones/sensores/update/<%= idSensor %>" method="post">
                 <table>
                     <tbody>
                         <tr>
-                            <td>Name</td>
-                            <td><input type="text" name="name" value="aqui-nombre" /></td>
+                            <td>
+                                ID del Sensor:
+                            </td>
+                            <td><input type="text" name="idSensor" value="<%= idSensor %>" disabled/></td>
                         </tr>
                         <tr>
-                            <td>Price</td>
-                            <td><input type="text" name="price" value="654456654" /></td>
+                            <td>
+                                <%= Object.keys(sensor)[0] %>
+                            </td>
+                            <td><input type="text" name="lugarUbicacion" value="<%= Object.values(sensor)[0] %>" /></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <%= Object.keys(sensor)[1] %>
+                            </td>
+                            <td><input type="text" name="model" value="<%= Object.values(sensor)[1] %>" /></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <%= Object.keys(sensor)[2] %>
+                            </td>
+                            <td><input type="text" name="type" value="<%= Object.values(sensor)[2] %>" /></td>
                         </tr>
                         <tr>
                             <td colspan="2"><button type="submit">Update</button></td>
@@ -44,37 +60,3 @@
 </body>
 
 </html>
-
-<!-- <!DOCTYPE html>
-<html>
-
-<head>
-    <title>Edit Sensor</title>
-</head>
-
-<body>
-    <div class="container">
-        <h3><a href="/configuraciones/sensores">Sensor List</a></h3>
-        <h1>Edit Sensor</h1>
-        
-        <form action="/configuraciones/sensores/update/654" method="post">
-            <table>
-                <tbody>
-                    <tr>
-                        <td>Name</td>
-                        <td><input type="text" name="name" value="aqui-nombre" /></td>
-                    </tr>
-                    <tr>
-                        <td>Price</td>
-                        <td><input type="text" name="price" value="654456654" /></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"><button type="submit">Update</button></td>
-                    </tr>
-                </tbody>
-            </table>
-        </form>
-    </div>
-</body>
-
-</html> -->
