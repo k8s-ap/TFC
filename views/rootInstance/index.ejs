@@ -3,7 +3,7 @@
 
 <head>
     <% include ../partials/head.ejs %>
-        <title>Sensor List</title>
+        <title>Soluiones IoT</title>
 </head>
 
 <body>
@@ -14,40 +14,37 @@
 
         <main>
 
+            <h1>Lista de Soluciones IoT</h1>
 
-            <h1>Lista de sensores</h1>
-            <!-- {% if products is not empty %} -->
             <table>
                 <thead>
                     <tr>
-                        <th>Modelo:</th>
-                        <th>Tipo:</th>
-                        <th>Lugar de Ubicación:</th>
+                        <th>idHome</th>
+                        <th>idGateway</th>
+                        <th>idNodoZigbeePues</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <% sensores.forEach(function(sensor) { %>
+                    <% registros.forEach(function(registro) { %>
                         <tr>
 
                             <td>
-                                <a href="/solucionIoT/sensores/show/<%= sensor[0] %>">
-                                    <%= sensor[1].model %>
+                                <a href="/solucionIoT/rootInstance/show/<%= registro[0] %>">
+                                    <%= registro[1].idHome %>
                                 </a>
                             </td>
                             <td>
-                                <%= sensor[1].type %>
+                                <%= registro[1].idHome %>
                             </td>
                             <td>
-                                <%= sensor[1].lugarUbicacion %>
+                                <%= registro[1].idHome %>
                             </td>
                         </tr>
                         <% }); %>
                 </tbody>
             </table>
-            <h3><a href="/solucionIoT/sensores/create">Create Sensor</a></h3>
-            <!-- {% else %} -->
-            <!-- <div>No sensor found.</div> -->
-            <!-- {% endif %} -->
+            <h3><a href="/solucionIoT/rootInstance/create">Create nueva Solucion IoT</a></h3>
+
 
         </main>
 

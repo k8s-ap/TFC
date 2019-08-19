@@ -4,7 +4,7 @@ var router = express.Router();
 
 router.get('/', function(req, res, next) {
     // res.send("Bandydos esta es la ruta de este archivo es: routes/configuraciones/index.js");
-    res.render('./pages/configuraciones.ejs');
+    res.render('./pages/solucionIoT.ejs');
 
 });
 

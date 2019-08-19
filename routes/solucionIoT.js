@@ -5,8 +5,9 @@ var express = require('express');
 var router = express.Router();
 
 
-var index = require('./configuraciones/index');
-var sensores = require('./configuraciones/sensores.js');
+var index = require('./solucionIoT/index.js');
+var sensores = require('./solucionIoT/sensores.js');
+var rootInstance = require('./solucionIoT/rootInstance.js');
 
 
 /* GET users listing. */
@@ -23,6 +24,7 @@ router.get('/', function(req, res, next) {
  */
 router.use('/', index);
 router.use('/sensores', sensores);
+router.use('/rootInstance', rootInstance);
 
 
 

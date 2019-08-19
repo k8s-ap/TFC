@@ -57,7 +57,7 @@ sensorController.save = function(req, res) {
     sensor.save(); // guardo el sensor creado, en la BD realtimeDatabase {NO se hará segun el tipo: Magnetico, Gas, Movimiento }
 
     console.log("El key asignado por firebase para mi nuevo sensor es:", sensor.data._id);
-    res.redirect("/configuraciones/sensores/show/" + sensor.data._id); // redireccionarlo a la ruta / configuraciones / sensores / show para mostrar los sensores que tengo cargados en mi BD
+    res.redirect("/solucionIoT/sensores/show/" + sensor.data._id); // redireccionarlo a la ruta / configuraciones / sensores / show para mostrar los sensores que tengo cargados en mi BD
     // lo unico que faltaria es tratar en caso de error con la conexion a database realtime firebase
 
 };
@@ -100,7 +100,7 @@ sensorController.delete = function(req, res) {
         console.log("mi key a borrar detro de Sensor Controoler es:", req.params.id);
         await Sensor.findByIdAndDelete(req.params.id); // le envio en el 1er parametro la key del sensor a actualizar y en el 2do parametro los datos a setear
         console.log("se borro exitosamente???");
-        res.redirect("/configuraciones/sensores");
+        res.redirect("/solucionIoT/sensores");
     }
     asyncDeleteSensor();
 
@@ -123,7 +123,7 @@ sensorController.update = function(req, res) {
 
         await Sensor.findByIdAndUpdate(req.params.id, set); // le envio en el 1er parametro la key del sensor a actualizar y en el 2do parametro los datos a setear
 
-        res.redirect("/configuraciones/sensores/show/" + req.params.id);
+        res.redirect("/solucionIoT/sensores/show/" + req.params.id);
     }
     asyncActualizoSensor();
 

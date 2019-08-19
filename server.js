@@ -7,7 +7,7 @@ const port = 7800;
 
 var index = require('./routes/index.js');
 var herramientas = require('./routes/herramientas.js');
-var configuraciones = require('./routes/configuraciones.js');
+var solucionIoT = require('./routes/solucionIoT.js');
 var usuarios = require('./routes/usuarios.js');
 var about = require('./routes/about.js');
 //para usar el req.body en SensorController.js
@@ -31,7 +31,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
  * CALL ROUTES
  */
 app.use('/', index);
-app.use('/configuraciones', configuraciones);
+app.use('/solucionIoT', solucionIoT);
 app.use('/herramientas', herramientas);
 app.use('/usuarios', usuarios);
 app.use('/about', about);

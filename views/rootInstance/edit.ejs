@@ -3,7 +3,7 @@
 
 <head>
     <% include ../partials/head.ejs %>
-        <title>Create Sensor</title>
+        <title>Edit Solution IoT</title>
 </head>
 
 <body>
@@ -14,29 +14,28 @@
 
         <main>
 
-            <h3><a href="/solucionIoT/sensores">Sensor List</a></h3>
-            <h1>Create new sensor</h1>
-            <form action="/solucionIoT/sensores/save" method="post">
+            <form action="/solucionIoT/rootInstance/update/<%= idRegistro %>" method="post">
                 <table>
                     <tbody>
                         <tr>
-                            <td>Model</td>
-                            <td><input type="text" name="model" /></td>
+                            <td>
+                                ID de la Solucion IoT:
+                            </td>
+                            <td><input type="text" name="idSolution" value="<%= idRegistro %>" disabled/></td>
                         </tr>
                         <tr>
-                            <td>Type</td>
-                            <td><input type="text" name="type" /></td>
+                            <td>
+                                <%= Object.keys(registro)[0] %>
+                            </td>
+                            <td><input type="text" name="idHome" value="<%= Object.values(registro)[0] %>" /></td>
                         </tr>
                         <tr>
-                            <td>Lugar de Ubicacion</td>
-                            <td><input type="text" name="lugarUbicacion" /></td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"><input type="submit" value="Save" /></td>
+                            <td colspan="2"><button type="submit">Update</button></td>
                         </tr>
                     </tbody>
                 </table>
             </form>
+
         </main>
 
         <footer>
