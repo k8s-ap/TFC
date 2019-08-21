@@ -38,14 +38,18 @@ rootInstanceController.create = function(req, res) {
 };
 
 rootInstanceController.save = function(req, res) {
-    //let solucionIoT = new RootInstance(req.body); //creo una nueva instancia de Sensor con los datos del formulario
+    var asyncSave = async() => {
 
-    let solucionIoT = new RootInstance(req.body);
-    solucionIoT.save(); // guardo el sensor creado, en la BD realtimeDatabase {NO se hará segun el tipo: Magnetico, Gas, Movimiento }
+        let solucionIoT = new RootInstance(req.body);
+        // console.log("el objeto creado con el metodo new es:", solucionIoT);
+        await solucionIoT.save(); // guardo mi nuevo objeto en la RealtimeDatabase de Firebase
+        await console.log("El key asignado por firebase para mi nueva solucion IoT es:", solucionIoT.data._id);
+        await res.redirect("/solucionIoT/rootInstance/show/" + solucionIoT.data._id);
 
-    console.log("El key asignado por firebase para mi nueva solucion IoT es:", solucionIoT.data._id);
-    res.redirect("/solucionIoT/rootInstance/show/" + solucionIoT.data._id); // redireccionarlo a la ruta / configuraciones / sensores / show para mostrar los sensores que tengo cargados en mi BD
-    // lo unico que faltaria es tratar en caso de error con la conexion a database realtime firebase
+        //faltaria es tratar en caso de error con la conexion a database realtime firebase
+    }
+    asyncSave();
+
 
 };
 

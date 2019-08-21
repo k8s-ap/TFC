@@ -6,35 +6,23 @@
         <title>Crear Solucion</title>
 </head>
 
-<body>
+<body style="background-color:rgba(169, 168, 255, 0.534)">
+
     <div class="container">
-        <header>
-            <% include ../partials/header.ejs %>
-        </header class="container">
 
-        <main>
+        <% include ../partials/header.ejs %>
+            <% include ../partials/rootInstance/headerCreate.ejs %>
+                <% include ../partials/rootInstance/formCreate.ejs %>
+                    <br>
+                    <% include ../partials/componentes.ejs %>
 
-            <h3><a href="/solucionIoT/rootInstance">Solution IoT List</a></h3>
-            <h1>Create new Solution IoT</h1>
-            <form action="/solucionIoT/rootInstance/save" method="post">
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>idHome</td>
-                            <td><input type="text" name="idHome" /></td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"><input type="submit" value="Save" /></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </form>
-        </main>
 
-        <footer>
-            <% include ../partials/footer.ejs %>
-        </footer>
+
+
+                        <% include ../partials/footer.ejs %>
+
     </div>
+
     <script src="/libs-style/jquery.js"></script>
     <script src="/libs-style/popper.js"></script>
     <script src="/libs-style/bootstrap.js"></script>

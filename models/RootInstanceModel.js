@@ -4,35 +4,24 @@ var database = new Database();
 
 class SolutionIoT {
     constructor(data) {
-        /* this.data = {
-            "idHome": "data.home",
-            "idGateway": "data.gateway",
-            "idNodoZigbee": "data.nodoZigbee",
-            "idSensor": "data.sensor",
-            "idMonitoreo": "data.monitoreo",
-            "idEvent": "data.event",
-            "idNotification": "data.notification",
-            "idUser": "data.user",
-        }; */
-        this.data = {
-            "idHome": data.idHome
-        };
+        this.data = JSON.parse(JSON.stringify(data));
+        // console.log("el dato construido es:", this.data);
     }
 
     get() {
         return this.data;
     }
 
-    save() {
+    async save() {
         /**
          * Siempre debo anteponer la variable 'service' antes de cualquier metodo para poder operar con la base de datos.  Ejemplo: database.service.push() para añadir un nuevo par key-value
          * Se recomienda usar.push() para añadir, ya que con este metodo podemos obtener la KEY del registro que acabamos de agregar ¿?
          */
-        let ref = database.service.ref('SolutionIoT'); //Referenciamos al nodo SolutionIoT
-        let newData = ref.push(this.data); // Pusheamos el nuevo dato
-        this.data._id = newData.key; // obtengo el ID del nuevo dato y lo asigno 
-        console.log("Se creo y guardo satisfactoriamente con ID:", this.data._id);
-
+        let ref = await database.service.ref('SolutionIoT'); //Referenciamos al nodo SolutionIoT
+        // console.log("Lo que pasamos al push CONVERTIDO a JSON es: \n", this.data);
+        let newData = await ref.push(this.data); // Pusheamos el nuevo dato
+        this.data._id = await newData.key; // obtengo el ID del nuevo documento y lo asigno a una nueva propiedad llamada data._id
+        await console.log("Se guardo correctamente el documento con key:", this.data._id);
     }
 
     static async findByIdAndUpdate(key, dataSet) {
