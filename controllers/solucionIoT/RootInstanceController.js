@@ -7,28 +7,20 @@ var rootInstanceController = {};
 rootInstanceController.list = function(req, res) {
     let asyncObtenerTodos = async() => {
         let allData = await RootInstance.findAll();
-        // console.log("TODOS LOS SENSORES SON:\n ", allSensors);
-        let arrayData = Object.entries(allData);
-        console.log(arrayData);
-
-        console.log(arrayData[1]);
-
-        res.render('./rootInstance/index.ejs', { registros: arrayData });
+        if (allData) {            
+            let arrayData = Object.entries(allData);
+            console.log("Array de array (con todos mis registros):",arrayData);
+            //console.log("Mi segundo registro es:", arrayData[1]);
+            res.render('./rootInstance/index.ejs', { registros: arrayData });
+        }else{
+            res.render('./rootInstance/index.ejs', { registros: null });
+        }
+        
         /* miArray.forEach(([key, value]) => {
             console.log(key + ' ' + Object.values(value)); // "a 5", "b 7", "c 9"     
         }); */
     };
     asyncObtenerTodos();
-
-    // res.send('aqui tengo que devolver una vista con TODOS los "sensores" en mi BD');
-
-    /* Product.find({}).exec(function (err, products) {
-        if (err) { console.log('Error: ', err); return; }
-        console.log("The INDEX");
-        res.render('../views/product/index', { products: products });
-
-    }); */
-
 };
 
 rootInstanceController.create = function(req, res) {

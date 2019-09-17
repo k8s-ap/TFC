@@ -12,34 +12,36 @@
         <main>
             <h3><a href="/solucionIoT/rootInstance">Solution IoT List</a></h3>
 
-            <table>
-                <thead>ID Solution IoT: <%= idRegistro %> </thead>
-                <tbody>                    
-                    <tbody>      
-                        <tr>
-                            <td>
-                                Direccion:    <%= registro.address %>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Titular:    <%= registro.apellidoNombre %>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Email: <%= registro.email %>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Telef: <%= registro.telef %>
-                            </td>
-                        </tr>
-                        
+            <% if (idRegistro) { %>
+                <table>
+                    <thead>ID Solution IoT: <%= idRegistro %> </thead>
+                    <tbody>                    
+                        <tbody>      
+                            <tr>
+                                <td>
+                                    Direccion:    <%= registro.address %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Titular:    <%= registro.apellidoNombre %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Email: <%= registro.email %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Telef: <%= registro.telef %>
+                                </td>
+                            </tr>
+                            
+                        </tbody>
                     </tbody>
-                </tbody>
-            </table>
+                </table>
+            <% } %>
                         
             <h3><a href="/solucionIoT/rootInstance/edit/<%= idRegistro %>">EDITAR</a></h3>
             <form action="/solucionIoT/rootInstance/delete/<%= idRegistro %>" method="post">

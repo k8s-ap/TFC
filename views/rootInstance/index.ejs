@@ -1,60 +1,58 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <% include ../partials/head.ejs %>
-        <title>Soluiones IoT</title>
+    <title>Soluiones IoT</title>
 </head>
-
 <body>
     <div class="container">
         <header>
             <% include ../partials/header.ejs %>
         </header class="container">
-
         <main>
-
-            <h1>Lista de Soluciones IoT</h1>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>id</th>
-                        <th>Direccion</th>
-                        <th>Titular</th>
-                        <th>Email</th>
-                        <th>Telef</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% registros.forEach(function(registro) { %>
+            <h3>Lista de Soluciones IoT</h3>
+            <% if (registros) { %>
+                <table>
+                    <thead>
                         <tr>
-                            <td>
-                                <a href="/solucionIoT/rootInstance/show/<%= registro[0]%>">
-                                    <%= registro[0] %>
-                                </a>
-                            </td>
-                            <td>
-                                <%= registro[1].address %>
-                            </td>
-                            <td>
-                                <%= registro[1].apellidoNombre %>
-                            </td>
-                            <td>
-                                <%= registro[1].email %>
-                            </td>
-                            <td>
-                                <%= registro[1].telef %>
-                            </td>
+                            <th>id</th>
+                            <th>Direccion</th>
+                            <th>Titular</th>
+                            <th>Email</th>
+                            <th>Telef</th>
                         </tr>
-                        <% }); %>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        <% registros.forEach(function(registro) { %>
+                            <tr>
+                                <td>
+                                    <a href="/solucionIoT/rootInstance/show/<%= registro[0]%>">
+                                        <%= registro[0] %>
+                                    </a>
+                                </td>
+                                <td>
+                                    <%= registro[1].address %>
+                                </td>
+                                <td>
+                                    <%= registro[1].apellidoNombre %>
+                                </td>
+                                <td>
+                                    <%= registro[1].email %>
+                                </td>
+                                <td>
+                                    <%= registro[1].telef %>
+                                </td>
+                            </tr>
+                            <% }); %>
+                    </tbody>
+                </table>
+            <% } else{ %>
+                <h4>No existen registros en la base de datos</h4>
+            <% } %>
+
+
             <h3><a href="/solucionIoT/rootInstance/create">Create nueva Solucion IoT</a></h3>
-
-
         </main>
-
         <footer>
             <% include ../partials/footer.ejs %>
         </footer>
