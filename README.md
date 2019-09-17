@@ -2617,3 +2617,12 @@ In the future, we might start automatically compiling incompatible third-party m
 ## Something Missing?
 
 If you have ideas for more “How To” recipes that should be on this page, [let us know](https://github.com/facebookincubator/create-react-app/issues) or [contribute some!](https://github.com/facebookincubator/create-react-app/edit/master/packages/react-scripts/template/README.md)
+
+
+# FIX 
+
+## Tratamiento de errores
+
+### Cuando Create, Read, Update, Delete un registro de la BD Realtime Firebase.  
+
+Debo mostrar un mensaje de conexion a internet perdida o demasiado lenta.
