@@ -1,33 +1,42 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <% include ../partials/head.ejs %>
         <title>Edit Solution IoT</title>
 </head>
-
 <body>
     <div class="container">
         <header>
             <% include ../partials/header.ejs %>
         </header class="container">
-
         <main>
-
             <form action="/solucionIoT/rootInstance/update/<%= idRegistro %>" method="post">
                 <table>
-                    <tbody>
+                    <thead>Editando Solution IoT con ID: <%= idRegistro %> </thead>
+                    <tbody>                        
                         <tr>
                             <td>
-                                ID de la Solucion IoT:
+                                Dirección:
                             </td>
-                            <td><input type="text" name="idSolution" value="<%= idRegistro %>" disabled/></td>
+                            <td><input type="text" name="address" value="<%= Object.values(registro)[0] %>" /></td>
                         </tr>
                         <tr>
                             <td>
-                                <%= Object.keys(registro)[0] %>
+                                Titular:
                             </td>
-                            <td><input type="text" name="idHome" value="<%= Object.values(registro)[0] %>" /></td>
+                            <td><input type="text" name="apellidoNombre" value="<%= Object.values(registro)[1] %>"  /></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Email:
+                            </td>
+                            <td><input type="text" name="email" value="<%= Object.values(registro)[2] %>"  /></td>
+                        </tr>                        
+                        <tr>
+                            <td>
+                                Telef:
+                            </td>
+                            <td><input type="text" name="telef" value="<%= Object.values(registro)[3] %>" /></td>
                         </tr>
                         <tr>
                             <td colspan="2"><button type="submit">Update</button></td>
@@ -35,9 +44,7 @@
                     </tbody>
                 </table>
             </form>
-
         </main>
-
         <footer>
             <% include ../partials/footer.ejs %>
         </footer>

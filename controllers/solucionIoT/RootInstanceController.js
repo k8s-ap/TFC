@@ -57,7 +57,8 @@ rootInstanceController.show = function(req, res) {
 
     var asyncObtenerDetalleUltimoRegistroCargado = async() => {
         let registroShow = await RootInstance.findOne(req.params.id); // le envio por parametro la key del ultimo sensor cargado  
-        console.log("mostrando la solucion IOT recientemente cargado:\n ", registroShow);
+        console.log("Mostrando desde mi archivo RootInstacneControoller el metodo show:\n ", registroShow);
+        console.log("Contenido del req.params.id es:\n ", req.params.id);
         res.render('./rootInstance/show.ejs', { registro: registroShow, idRegistro: req.params.id });
     }
     asyncObtenerDetalleUltimoRegistroCargado(); // llamo a mi funcion asincrona
@@ -102,20 +103,18 @@ rootInstanceController.delete = function(req, res) {
 rootInstanceController.update = function(req, res) {
 
     // console.log("Actualizo los valores del id del sensor.");
-    console.log("los datos recibidos para cambiar son:", req.body);
+    console.log("JSON recibido en mi metodo update:", req.body);
     // res.redirect("/configuraciones/sensores/show/" + req.params.id);
 
     var asyncActualizo = async() => {
         let set = {
-            idHome: "req.body.model",
-            idGateway: "req.body.type",
-            idNodoZigbee: "req.body.lugarUbicacion",
-            idSensor: "data.sensor",
-            idMonitoreo: "data.monitoreo",
-            idEvent: "data.event",
-            idNotification: "data.notification",
-            idUser: "data.user",
+            address: req.body.address,
+            apellidoNombre: req.body.apellidoNombre,
+            email: req.body.email,
+            telef: req.body.telef,
         };
+
+        console.log("El pseudo JSON a subir a Firebase es:", set);
 
         await RootInstance.findByIdAndUpdate(req.params.id, set); // le envio en el 1er parametro la key del sensor a actualizar y en el 2do parametro los datos a setear
 

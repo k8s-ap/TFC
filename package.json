@@ -16,6 +16,7 @@
         "express": "^4.17.1",
         "firebase-admin": "^8.3.0",
         "jquery": "^3.4.1",
+        "nodemon": "^1.19.2",
         "popper.js": "^1.15.0",
         "serialport": "^7.1.5",
         "xbee-api": "^0.6.0"

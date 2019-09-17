@@ -1,40 +1,50 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <% include ../partials/head.ejs %>
-        <title>Solution IoT Detail</title>
+    <title>Solution IoT Detail</title>
 </head>
-
 <body>
     <div class="container">
         <header>
             <% include ../partials/header.ejs %>
         </header class="container">
-
         <main>
             <h3><a href="/solucionIoT/rootInstance">Solution IoT List</a></h3>
 
             <table>
-                <thead>Detalles de la Solucion IoT registrada recientemente:</thead>
-                <tbody>
-                    <tr>
-                        <td>idHome:</td>
-
-                        <td>
-                            <%= registro.model %>
-                        </td>
-                    </tr>
-
+                <thead>ID Solution IoT: <%= idRegistro %> </thead>
+                <tbody>                    
+                    <tbody>      
+                        <tr>
+                            <td>
+                                Direccion:    <%= registro.address %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Titular:    <%= registro.apellidoNombre %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Email: <%= registro.email %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Telef: <%= registro.telef %>
+                            </td>
+                        </tr>
+                        
+                    </tbody>
                 </tbody>
             </table>
-            <!-- <h3><a href="/products/edit/{{ product._id }}">EDIT</a></h3> -->
+                        
             <h3><a href="/solucionIoT/rootInstance/edit/<%= idRegistro %>">EDITAR</a></h3>
-
             <form action="/solucionIoT/rootInstance/delete/<%= idRegistro %>" method="post">
                 <button type="submit">DELETE</button>
             </form>
-
         </main>
 
         <footer>

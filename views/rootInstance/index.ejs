@@ -19,25 +19,32 @@
             <table>
                 <thead>
                     <tr>
-                        <th>idHome</th>
-                        <th>idGateway</th>
-                        <th>idNodoZigbeePues</th>
+                        <th>id</th>
+                        <th>Direccion</th>
+                        <th>Titular</th>
+                        <th>Email</th>
+                        <th>Telef</th>
                     </tr>
                 </thead>
                 <tbody>
                     <% registros.forEach(function(registro) { %>
                         <tr>
-
                             <td>
-                                <a href="/solucionIoT/rootInstance/show/<%= registro[0] %>">
-                                    <%= registro[1].idHome %>
+                                <a href="/solucionIoT/rootInstance/show/<%= registro[0]%>">
+                                    <%= registro[0] %>
                                 </a>
                             </td>
                             <td>
-                                <%= registro[1].idHome %>
+                                <%= registro[1].address %>
                             </td>
                             <td>
-                                <%= registro[1].idHome %>
+                                <%= registro[1].apellidoNombre %>
+                            </td>
+                            <td>
+                                <%= registro[1].email %>
+                            </td>
+                            <td>
+                                <%= registro[1].telef %>
                             </td>
                         </tr>
                         <% }); %>
@@ -58,39 +65,3 @@
 </body>
 
 </html>
-
-<!-- <!DOCTYPE html>
-<html>
-
-<head>
-    <title>Product List</title>
-</head>
-
-<body>
-    <div class="container">
-        <h3><a href="/products/create">Create Product</a></h3>
-        <h1>Product List</h1>
-        {% if products is not empty %}
-        <table>
-            <thead>
-                <tr>
-                    <th>Employee Name</th>
-                    <th>Position</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for product in products %}
-                <tr>
-                    <td><a href="/products/show/{{ product._id }}">{{ product.name }}</a></td>
-                    <td>{{ product.price }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        {% else %}
-        <div>No products found.</div>
-        {% endif %}
-    </div>
-</body>
-
-</html> -->
