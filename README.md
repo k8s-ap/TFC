@@ -2626,3 +2626,5 @@ If you have ideas for more “How To” recipes that should be on this page, [le
 ### Cuando Create, Read, Update, Delete un registro de la BD Realtime Firebase.  
 
 Debo mostrar un mensaje de conexion a internet perdida o demasiado lenta.
+
+Si el formulario de creacion de solution IoT esta vacio, o tiene algun campo invalido, entonces no se debe guardar eso en la BD 

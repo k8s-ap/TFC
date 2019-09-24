@@ -3,7 +3,7 @@
 
 <head>
     <% include ../partials/head.ejs %>
-        <title>Instancia de la solución IoT</title>
+    <title>Instancia de la solución IoT</title>
 </head>
 
 <body style="background-color:rgba(169, 168, 255, 0.534)">
@@ -11,25 +11,31 @@
         <header>
             <% include ../partials/header.ejs %>
         </header class="container">
-
         <main>
             <div class="jumbotron">
-
                 <h1 class="display-4 font-weight-bold">Solución IoT</h1>
-
-                <p class="lead my-3">Una solucion IoT contiene la declaracion de dispositivos utilizados para monitorear el hogar, por ejemplo los tipos de sensores, nodos zigbee, adaptador USB-Serial, etc. </p>
-                <p class="lead my-3">Para crear una solución IoT que ayude a proteger su hogar complete los pasos indicados. </p>
-
-                <a href="/solucionIoT/rootInstance/create" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">Crear instancia raiz</a>
+                <p class="lead my-3">Para crear una solucion IoT que permita monitorear y proteger su hogar debe
+                    completar los siguientes formularios: </p>
+                <br>
+                <a href="/solucionIoT/rootInstance/create" class="btn btn-success" tabindex="-1" role="button"
+                    aria-disabled="true">Crear Solución IoT </a>
+                <a href="/solucionIoT/rootInstance" class="btn btn-success" tabindex="-1" role="button"
+                    aria-disabled="true">Listar las Soluciónes IoT </a>
                 <br><br>
-                <a href="solucionIoT/sensores/create" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">Crear Sensor</a>
-
+                <a href="/solucionIoT/nodoZigbee/create" class="btn btn-success" tabindex="-1" role="button"
+                    aria-disabled="true">Crear nodo Zigbee </a>
+                <a href="/solucionIoT/nodoZigbee" class="btn btn-success" tabindex="-1" role="button"
+                    aria-disabled="true">Listar los nodos Zigbee </a>
+                <br><br>
+                <a href="solucionIoT/sensores/create" class="btn btn-success" tabindex="-1" role="button"
+                    aria-disabled="true">Crear Sensor</a>
+                <a href="solucionIoT/sensores" class="btn btn-success" tabindex="-1" role="button"
+                    aria-disabled="true">Listar los sensores</a>
             </div>
         </main>
 
         <% include ../partials/componentes.ejs %>
-
-            <% include ../partials/footer.ejs %>
+        <% include ../partials/footer.ejs %>
 
     </div>
     <script src="/libs-style/jquery.js"></script>

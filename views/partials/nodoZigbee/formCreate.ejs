@@ -1,0 +1,51 @@
+<div class="jumbotron">
+    <div class="col-md-8 order-md-1">
+        <h3 class="mb-4">Complete propiedades y funciones del nodoZigbee:</h3>
+        <form class="needs-validation" novalidate="" form action="/solucionIoT/nodoZigbee/save" method="post">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="mac">Dirección MAC</label>
+                    <input type="text" class="form-control" id="mac" name="mac" placeholder="f9:0a:b5:cd:d8:e6" required="">
+                    <div class="invalid-feedback">
+                        Por favor complete el dato correspondiente a la dirección MAC.
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="model">Modelo del Dispositivo</label>
+                <input type="text" class="form-control" id="model" name="model" placeholder="XBee S2C" required="">
+                <div class="invalid-feedback">
+                    Por favor complete el datos correspondiente al modelo del dispositivo.
+                </div>
+            </div>
+            <div class="mb-3">
+                <label>Tipo de rol a desempeñar</label>
+                <div class="input-group">
+                    <input type="typeRol" class="form-control" id="typeRol" name="typeRol" placeholder="Coordinador / Router / End Device" required="">
+                    <div class="invalid-feedback">
+                        Por favor ingrese un typeRol valido.
+                    </div>
+                    <div class="invalid-feedback" style="width: 100%;">
+                        Por favor complete el datos correspondiente al tipo de rol.
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="lugarUbicac">Lugar de ubicación</label>
+                <input type="text" class="form-control" id="lugarUbicac" name="lugarUbicac" placeholder="Conectado al computador / Living / Patio / Etc" required="">
+                <div class="invalid-feedback">
+                    Por favor complete el datos correspondiente al lugar de ubicación.
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="estadoFuncionamiento">Estado de funcionamiento</label>
+                <input type="text" class="form-control" id="estadoFuncionamiento" name="estadoFuncionamiento"
+                    placeholder="correcto o defectuoso" required="">
+                <div class="invalid-feedback">
+                    Por favor complete el dato correspondiente al estado de funcionamiento del nodo Zigbee.
+                </div>
+            </div>
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Guardar</button>
+        </form>
+    </div>    
+</div>

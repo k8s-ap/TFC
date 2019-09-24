@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ../partials/head.ejs %>
+        <title>Edit nodo Zigbee</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <% include ../partials/header.ejs %>
+        </header class="container">
+        <main>
+            <form action="/solucionIoT/nodoZigbee/update/<%= idRegistro %>" method="post">
+                <table>
+                    <thead>Editando nodo Zigbee con ID: <%= idRegistro %> </thead>
+                    <tbody>                        
+                        <tr>
+                            <td>
+                                Dirección MAC:
+                            </td>
+                            <td><input type="text" name="mac" value="<%= Object.values(registro)[2] %>" /></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Modelo:
+                            </td>
+                            <td><input type="text" name="model" value="<%= Object.values(registro)[3] %>"  /></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Tipo de rol:
+                            </td>
+                            <td><input type="text" name="typeRol" value="<%= Object.values(registro)[4] %>"  /></td>
+                        </tr>                        
+                        <tr>
+                            <td>
+                                Lugar de Ubicación:
+                            </td>
+                            <td><input type="text" name="lugarUbicac" value="<%= Object.values(registro)[1] %>" /></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Estado de funcionamiento:
+                            </td>
+                            <td><input type="text" name="estadoFuncionamiento" value="<%= Object.values(registro)[0] %>" /></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><button type="submit">Actualizar datos</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </main>
+        <footer>
+            <% include ../partials/footer.ejs %>
+        </footer>
+    </div>
+    <script src="/libs-style/jquery.js"></script>
+    <script src="/libs-style/popper.js"></script>
+    <script src="/libs-style/bootstrap.js"></script>
+</body>
+
+</html>

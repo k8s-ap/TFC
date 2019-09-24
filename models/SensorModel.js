@@ -1,7 +1,6 @@
 var Database = require("../config/Database.js");
 var database = new Database();
 
-
 class Sensor {
     constructor(data) {
         this.data = {

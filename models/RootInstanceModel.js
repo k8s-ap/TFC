@@ -1,7 +1,6 @@
 var Database = require("../config/Database.js");
 var database = new Database();
 
-
 class SolutionIoT {
     constructor(data) {
         this.data = JSON.parse(JSON.stringify(data));
@@ -15,13 +14,13 @@ class SolutionIoT {
     async save() {
         /**
          * Siempre debo anteponer la variable 'service' antes de cualquier metodo para poder operar con la base de datos.  Ejemplo: database.service.push() para añadir un nuevo par key-value
-         * Se recomienda usar.push() para añadir, ya que con este metodo podemos obtener la KEY del registro que acabamos de agregar ¿?
+         * Se recomienda usar push() para añadir, ya que con este metodo podemos obtener la KEY del registro que acabamos de agregar 
          */
         let ref = await database.service.ref('SolutionIoT'); //Referenciamos al nodo SolutionIoT
         // console.log("Lo que pasamos al push CONVERTIDO a JSON es: \n", this.data);
         let newData = await ref.push(this.data); // Pusheamos el nuevo dato
         this.data._id = await newData.key; // obtengo el ID del nuevo documento y lo asigno a una nueva propiedad llamada data._id
-        await console.log("Se guardo correctamente el documento con key:", this.data._id);
+        await console.log("Se guardo correctamente el documento:", this.data);
     }
 
     static async findByIdAndUpdate(key, dataSet) {
@@ -46,7 +45,6 @@ class SolutionIoT {
     }
 
     static async findAll() {
-
         var result;
         await database.service.ref('/SolutionIoT').once('value').then(snapshot => {
             result = (snapshot.val());
@@ -54,7 +52,6 @@ class SolutionIoT {
         // console.log("mostrar todos los datos: \n", result);
         return result;
     }
-
 }
 
 module.exports = SolutionIoT;

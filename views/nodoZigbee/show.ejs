@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ../partials/head.ejs %>
+    <title>Detalles Nodo Zigbee</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <% include ../partials/header.ejs %>
+        </header class="container">
+        <main>
+            <h3><a href="/solucionIoT/nodoZigbee">Listar nodos Zigbee</a></h3>
+
+            <% if (idRegistro) { %>
+                <table>
+                    <thead>ID: <%= idRegistro %> </thead>
+                    <tbody>                    
+                        <tbody>      
+                            <tr>
+                                <td>
+                                    Dirección MAC:    <%= registro.mac %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Modelo:    <%= registro.model %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Tipo de rol: <%= registro.typeRol %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Lugar de ubicación: <%= registro.lugarUbicac %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Estado de funcionamiento: <%= registro.estadoFuncionamiento %>
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </tbody>
+                </table>
+            <% } %>
+                        
+            <h3><a href="/solucionIoT/nodoZigbee/edit/<%= idRegistro %>">Editar nodo Zigbee</a></h3>
+            <form action="/solucionIoT/nodoZigbee/delete/<%= idRegistro %>" method="post">
+                <button type="submit">Borrar nodo Zigbee</button>
+            </form>
+        </main>
+
+        <footer>
+            <% include ../partials/footer.ejs %>
+        </footer>
+    </div>
+    <script src="/libs-style/jquery.js"></script>
+    <script src="/libs-style/popper.js"></script>
+    <script src="/libs-style/bootstrap.js"></script>
+</body>
+
+</html>

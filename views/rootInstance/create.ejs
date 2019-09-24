@@ -1,25 +1,222 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <% include ../partials/head.ejs %>
-        <title>Crear Solucion</title>
+    <title>Crear Solucion</title>
 </head>
-
 <body style="background-color:rgba(169, 168, 255, 0.534)">
-
     <div class="container">
-
         <% include ../partials/header.ejs %>
-            <% include ../partials/rootInstance/headerCreate.ejs %>
-                <% include ../partials/rootInstance/formCreate.ejs %>
-                    <br>
-                    <% include ../partials/componentes.ejs %>
-
-
-
-
-                        <% include ../partials/footer.ejs %>
+        <% include ../partials/rootInstance/headerCreate.ejs %>
+        <% include ../partials/rootInstance/formCreate.ejs %>
+        <br>        
+            <div class="jumbotron">    
+                <nav aria-label="...">
+                    <ul class="pagination">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item active" aria-current="page">
+                            <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+                
+                <p>
+                    <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+                        aria-controls="collapseExample">
+                        Link with href
+                    </a>
+                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample"
+                        aria-expanded="false" aria-controls="collapseExample">
+                        Paso 1
+                    </button>
+                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample2"
+                        aria-expanded="false" aria-controls="collapseExample">
+                        Paso 2
+                    </button>
+                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample3"
+                        aria-expanded="false" aria-controls="collapseExample">
+                        Paso 3
+                    </button>
+                </p>
+                <div class="collapse" id="collapseExample">
+                    <div class="card card-body">
+                        <div class="col-md-8 order-md-1">
+                            <h3 class="mb-4">Registrar los siguientes datos</h3>
+                        
+                            <form class="needs-validation" novalidate="" form action="/solucionIoT/rootInstance/save" method="post">
+                                <h5 class="mb-4">Usuario administrador del sistema:</h5>
+                        
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="apellidoNombre">Apellido y nombre</label>
+                                        <input type="text" class="form-control" id="apellidoNombre" name="apellidoNombre" required>
+                                        <div class="invalid-feedback">
+                                            Por favor complete el datos correspondiente al Apellido y nombre.
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                                <div class="mb-3">
+                                    <label for="telef">Telefono celular</label>
+                                    <input type="text" class="form-control" id="telef" name="telef" placeholder="0388-154806017" required="">
+                                    <div class="invalid-feedback">
+                                        Por favor complete el datos correspondiente al telefono celular.
+                                    </div>
+                                </div>
+                        
+                                <div class="mb-3">
+                                    <label>Email</label>
+                                    <div class="input-group">
+                        
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com"
+                                            required="">
+                                        <div class="invalid-feedback">
+                                            Por favor ingrese un email valido.
+                                        </div>
+                                        <div class="invalid-feedback" style="width: 100%;">
+                                            Por favor complete el datos correspondiente al Email.
+                                        </div>
+                        
+                                    </div>
+                                </div>
+                        
+                                <div class="mb-3">
+                                    <label for="address">Domicilio</label>
+                                    <input type="text" class="form-control" id="address" name="address"
+                                        placeholder="Av. Evergreen 742, Springfield, Oregón, EEUU " required="">
+                                    <div class="invalid-feedback">
+                                        Por favor complete el datos correspondiente al domicilio.
+                                    </div>
+                                </div>
+                        
+                                <button class="btn btn-primary btn-lg btn-block" type="submit">Continuar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="collapse" id="collapseExample2">
+                    <div class="card card-body">
+                        <div class="col-md-8 order-md-1">
+                            <h3 class="mb-4">Registrar los siguientes datos</h3>
+                        
+                            <form class="needs-validation" novalidate="" form action="/solucionIoT/rootInstance/save" method="post">
+                                <h5 class="mb-4">Usuario administrador del sistema:</h5>
+                        
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="apellidoNombre">Apellido y nombre</label>
+                                        <input type="text" class="form-control" id="apellidoNombre" name="apellidoNombre" required>
+                                        <div class="invalid-feedback">
+                                            Por favor complete el datos correspondiente al Apellido y nombre.
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                                <div class="mb-3">
+                                    <label for="telef">Telefono celular</label>
+                                    <input type="text" class="form-control" id="telef" name="telef" placeholder="0388-154806017" required="">
+                                    <div class="invalid-feedback">
+                                        Por favor complete el datos correspondiente al telefono celular.
+                                    </div>
+                                </div>
+                        
+                                <div class="mb-3">
+                                    <label>Email</label>
+                                    <div class="input-group">
+                        
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com"
+                                            required="">
+                                        <div class="invalid-feedback">
+                                            Por favor ingrese un email valido.
+                                        </div>
+                                        <div class="invalid-feedback" style="width: 100%;">
+                                            Por favor complete el datos correspondiente al Email.
+                                        </div>
+                        
+                                    </div>
+                                </div>
+                        
+                                <div class="mb-3">
+                                    <label for="address">Domicilio</label>
+                                    <input type="text" class="form-control" id="address" name="address"
+                                        placeholder="Av. Evergreen 742, Springfield, Oregón, EEUU " required="">
+                                    <div class="invalid-feedback">
+                                        Por favor complete el datos correspondiente al domicilio.
+                                    </div>
+                                </div>
+                        
+                                <button class="btn btn-primary btn-lg btn-block" type="submit">Continuar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="collapse" id="collapseExample3">
+                    <div class="card card-body">
+                        <div class="col-md-8 order-md-1">
+                            <h3 class="mb-4">Registrar los siguientes datos</h3>
+                        
+                            <form class="needs-validation" novalidate="" form action="/solucionIoT/rootInstance/save" method="post">
+                                <h5 class="mb-4">Usuario administrador del sistema:</h5>
+                        
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="apellidoNombre">Apellido y nombre</label>
+                                        <input type="text" class="form-control" id="apellidoNombre" name="apellidoNombre" required>
+                                        <div class="invalid-feedback">
+                                            Por favor complete el datos correspondiente al Apellido y nombre.
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                                <div class="mb-3">
+                                    <label for="telef">Telefono celular</label>
+                                    <input type="text" class="form-control" id="telef" name="telef" placeholder="0388-154806017" required="">
+                                    <div class="invalid-feedback">
+                                        Por favor complete el datos correspondiente al telefono celular.
+                                    </div>
+                                </div>
+                        
+                                <div class="mb-3">
+                                    <label>Email</label>
+                                    <div class="input-group">
+                        
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com"
+                                            required="">
+                                        <div class="invalid-feedback">
+                                            Por favor ingrese un email valido.
+                                        </div>
+                                        <div class="invalid-feedback" style="width: 100%;">
+                                            Por favor complete el datos correspondiente al Email.
+                                        </div>
+                        
+                                    </div>
+                                </div>
+                        
+                                <div class="mb-3">
+                                    <label for="address">Domicilio</label>
+                                    <input type="text" class="form-control" id="address" name="address"
+                                        placeholder="Av. Evergreen 742, Springfield, Oregón, EEUU " required="">
+                                    <div class="invalid-feedback">
+                                        Por favor complete el datos correspondiente al domicilio.
+                                    </div>
+                                </div>
+                        
+                                <button class="btn btn-primary btn-lg btn-block" type="submit">Continuar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>                
+            </div>         
+        
+        <% include ../partials/componentes.ejs %>
+        <% include ../partials/footer.ejs %>
 
     </div>
 

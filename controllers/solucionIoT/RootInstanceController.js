@@ -1,8 +1,6 @@
 var RootInstance = require("../../models/RootInstanceModel");
 
-
 var rootInstanceController = {};
-
 
 rootInstanceController.list = function(req, res) {
     let asyncObtenerTodos = async() => {
@@ -24,43 +22,34 @@ rootInstanceController.list = function(req, res) {
 };
 
 rootInstanceController.create = function(req, res) {
-    // res.send('Aqui devuelvo una vista de formulario que me permita crear un sensor');
+    //aqui deberia renderizar una unica vista que permita al usuario cargar los datos para:
+    //la nueva solutionIoT, los sensores y los nodosZigbee.   
+    // res.send('Aqui devuelvo una vista de formulario que me permita crear un documento ');
     // res.render('../views/sensor/create');
     res.render('./rootInstance/create.ejs');
 };
 
 rootInstanceController.save = function(req, res) {
     var asyncSave = async() => {
-
         let solucionIoT = new RootInstance(req.body);
-        // console.log("el objeto creado con el metodo new es:", solucionIoT);
+        // console.log("el objeto creado con el constructor de la clase new es:", solucionIoT);
         await solucionIoT.save(); // guardo mi nuevo objeto en la RealtimeDatabase de Firebase
         await console.log("El key asignado por firebase para mi nueva solucion IoT es:", solucionIoT.data._id);
         await res.redirect("/solucionIoT/rootInstance/show/" + solucionIoT.data._id);
 
-        //faltaria es tratar en caso de error con la conexion a database realtime firebase
+        //faltaria tratar el caso de error con la conexion a database realtime firebase(ejemplo desconexion a internet)
     }
     asyncSave();
-
-
 };
 
 rootInstanceController.show = function(req, res) {
-
-    var asyncObtenerDetalleUltimoRegistroCargado = async() => {
-        let registroShow = await RootInstance.findOne(req.params.id); // le envio por parametro la key del ultimo sensor cargado  
-        console.log("Mostrando desde mi archivo RootInstacneControoller el metodo show:\n ", registroShow);
+    var asyncMostrarDocumento = async() => {
         console.log("Contenido del req.params.id es:\n ", req.params.id);
-        res.render('./rootInstance/show.ejs', { registro: registroShow, idRegistro: req.params.id });
+        let documento = await RootInstance.findOne(req.params.id); // le envio por parametro la key del documento a mostrar  
+        console.log("El documendo a mostrar con el metodo show es:\n ", documento); 
+        res.render('./rootInstance/show.ejs', { registro: documento, idRegistro: req.params.id });
     }
-    asyncObtenerDetalleUltimoRegistroCargado(); // llamo a mi funcion asincrona
-
-
-    // let model = sensorShow.model;
-    // let type = sensorShow.type;
-    // let lugarUbicacion = sensorShow.lugarUbicacion;
-    // res.render('./sensor/show.ejs', { model: "asdddsf" });
-
+    asyncMostrarDocumento(); // llamo a mi funcion asincrona
 };
 
 rootInstanceController.edit = function(req, res) {
